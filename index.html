@@ -4,21 +4,425 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Emergency Service Directory</title>
+
+    <!-- DaisyUI -->
     <link
       href="https://cdn.jsdelivr.net/npm/daisyui@5"
       rel="stylesheet"
-      type="text/css"
-    />
+      type="text/css" />
+
+    <!-- Tailwind -->
     <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Font Awesome -->
     <link
       rel="stylesheet"
       href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/7.0.0/css/all.min.css"
       integrity="sha512-DxV+EoADOkOygM4IR9yXP8Sb2qwgidEmeqAEmDKIOfPRQZOWbXCzLC6vjbZyy0vPisbH2SyW27+ddLVCN+OMzQ=="
       crossorigin="anonymous"
-      referrerpolicy="no-referrer"
-    />
+      referrerpolicy="no-referrer" />
+
+    <!-- External Styling for Fonts -->
+    <link rel="stylesheet" href="./css/style.css" />
   </head>
   <body>
+    <!-- Header -->
+    <header>
+      <nav
+        class="flex flex-col md:flex-row items-center text-white justify-normal md:justify-between md:p-4 md:pr-10 md:pl-10">
+        <!-- Logo -->
+        <div
+          class="flex items-center text-green-700 font-extrabold text-2xl mb-3">
+          <img
+            src="assets/logo.png"
+            alt="logo"
+            class="h-16 mr-4 mt-2 md:mt-0" />
+          Emergency <br />Services
+        </div>
+
+        <!-- Navbar Items -->
+        <div class="flex items-center mb-3 m-1">
+          <!-- Heart Count -->
+          <div
+            class="bg-green-100 text-black pr-5 pl-5 md:pr-8 md:pl-8 pt-2 pb-2 rounded-3xl border-none mr-2 md:mr-4 font-extrabold flex">
+            <span class="inter-font" id="heart">0</span>
+            <img src="assets/heart.png" alt="heart" class="h-6 ml-1" />
+          </div>
+
+          <!-- Coin Count -->
+          <div
+            class="bg-green-100 text-black pr-5 pl-5 md:pr-8 md:pl-8 pt-2 pb-2 rounded-3xl border-none mr-2 md:mr-4 font-extrabold flex">
+            <span id="coin" class="inter-font">100</span>
+            <img src="assets/coin.png" alt="coin" class="h-6 ml-1" />
+          </div>
+
+          <!-- Copy Count -->
+          <div
+            class="inter-font bg-green-600 pr-5 pl-5 md:pr-8 md:pl-8 pt-2 pb-2 rounded-3xl border-none text-white flex">
+            <span id="copy" class="mr-1">0</span> Copy
+          </div>
+        </div>
+      </nav>
+    </header>
+
+    <!-- Main Content -->
+    <main class="bg-[#F5FFF6]">
+      <!-- Hero Section -->
+      <div
+        class="bg-gradient-to-r from-[#013223] via-[#006747] to-[#013223] h-72 md:h-48 flex flex-col p-2 items-center justify-center text-center">
+        <div>
+          <img src="assets/logo.png" alt="logo" class="h-20" />
+        </div>
+        <div class="hind-madurai-font text-white font-bold text-4xl">
+          Emergency Service Directory
+        </div>
+        <div class="hind-madurai-font text-white mt-2 font-semibold">
+          Government Emergency Services at Your Fingertip – A Project by
+          Government of the People’s Republic of Bangladesh
+        </div>
+      </div>
+
+      <!-- Card Section -->
+      <div class="grid grid-cols-12 gap-6 m-4 md:m-26 lg:m-6">
+        <!-- Cards Grid -->
+        <div
+          class="col-span-12 lg:col-span-9 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+          <!-- Card: National Emergency -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-red-200 p-3 rounded-lg">
+                  <img src="assets/emergency.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >National Emergency Number</span
+              >
+              <span class="roboto-font">National Emergency</span>
+              <span class="roboto-font font-bold text-3xl">999</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >All</span
+              >
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('National Emergency Number','999')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('National Emergency Number','999')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Police Helpline Number -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-blue-200 p-3 rounded-lg">
+                  <img src="assets/police.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >Police Helpline Number</span
+              >
+              <span class="roboto-font">Police</span>
+              <span class="roboto-font font-bold text-3xl">999</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >Police</span
+              >
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('Police Helpline Number','999')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('Police Helpline Number','999')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Fire Service Number -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-red-200 p-3 rounded-lg">
+                  <img src="assets/fire-service.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >Fire Service Number</span
+              >
+              <span class="roboto-font">Fire Service</span>
+              <span class="roboto-font font-bold text-3xl">999</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >Fire</span
+              >
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('Fire Service Number','999')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('Fire Service Number','999')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Ambulance Service -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-red-200 p-3 rounded-lg">
+                  <img src="assets/ambulance.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >Ambulance Service</span
+              >
+              <span class="roboto-font">Ambulance</span>
+              <span class="roboto-font font-bold text-3xl">1994-999999</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >Health</span
+              >
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('Ambulance Service','1994-9999999')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('Ambulance Service','1994-999999')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Women & Child Helpline -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-red-200 p-3 rounded-lg">
+                  <img src="assets/emergency.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >Women & Child Helpline</span
+              >
+              <span class="roboto-font">Women & Child Helpline</span>
+              <span class="roboto-font font-bold text-3xl">109</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >Help</span
+              >
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('Women & Child Helpline','109')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('Women & Child Helpline','109')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Anti-Corruption Helpline -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-red-200 p-3 rounded-lg">
+                  <img src="assets/emergency.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >Anti-Corruption Helpline</span
+              >
+              <span class="roboto-font">Anti-Corruption</span>
+              <span class="roboto-font font-bold text-3xl">106</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >Govt.</span
+              >
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('Anti-Corruption Helpline','106')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('Anti-Corruption Helpline','106')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Electricity Helpline -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-red-200 p-3 rounded-lg">
+                  <img src="assets/emergency.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >Electricity Helpline</span
+              >
+              <span class="roboto-font">Electricity Outage</span>
+              <span class="roboto-font font-bold text-3xl">16216</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >Electricity
+              </span>
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('Electricity Helpline','16216')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('Electricity Helpline','16216')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Brac Helpline -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-red-200 p-3 rounded-lg">
+                  <img src="assets/emergency.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >Brac Helpline</span
+              >
+              <span class="roboto-font">Brac</span>
+              <span class="roboto-font font-bold text-3xl">16445</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >NGO</span
+              >
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('Brac Helpline','16445')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('Brac Helpline','16445')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+
+          <!-- Card: Bangladesh Railway Helpline -->
+          <div class="card card-border bg-base-100 shadow-md">
+            <div class="card-body">
+              <div class="flex justify-between items-center">
+                <div class="bg-red-200 p-3 rounded-lg">
+                  <img src="assets/emergency.png" alt="icon" class="h-6" />
+                </div>
+                <div>
+                  <i class="fa-regular fa-heart text-lg"></i>
+                </div>
+              </div>
+              <span class="hind-madurai-font font-bold text-2xl"
+                >Bangladesh Railway Helpline</span
+              >
+              <span class="roboto-font">Bangladesh Railway</span>
+              <span class="roboto-font font-bold text-3xl">163</span>
+              <span
+                class="hind-madurai-font badge bg-gray-100 border-none p-4 text-black rounded-2xl"
+                >Travel</span
+              >
+              <div class="flex justify-between items-center mt-4">
+                <button
+                  class="btn w-1/2 mr-2 rounded-lg"
+                  onclick="copyText('Bangladesh Railway Helpline','163')">
+                  <i class="fa-solid fa-copy"></i> Copy
+                </button>
+                <button
+                  class="btn bg-[green] text-white w-1/2 rounded-lg"
+                  onclick="callNumber('Bangladesh Railway Helpline','163')">
+                  <i class="fa-solid fa-phone"></i> Call
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Call History -->
+        <div
+          class="bg-base-100 p-6 rounded-xl shadow-md col-span-12 lg:col-span-3"
+          id="call-history">
+          <div class="flex flex-row items-center justify-between">
+            <div class="roboto-font font-bold">
+              <i class="fa-regular fa-clock"></i> Call History
+            </div>
+            <div>
+              <button
+                type="button"
+                class="inter-font btn bg-green-600 pr-8 pl-8 pt-4 pb-4 rounded-3xl border-none text-white"
+                onclick="clearHistory()">
+                Clear
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </main>
     <script src="./js/index.js"></script>
   </body>
 </html>
